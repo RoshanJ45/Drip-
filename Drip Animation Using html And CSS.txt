@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    .drip {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 100px;
+        height: 18px;
+        background: skyblue;
+        border-radius: 50%;
+        transform: translate(-50%, 400%);
+    }
+    .drip:before,
+    .drip:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        background: skyblue;
+        border-radius: 50%;
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+        animation: ripple 1s infinite ease-in;
+    }
+    .drip:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 0 50%;
+        transform: translate(0 50%, 0 50%);
+        transform: translate(-50%, -1000%) rotate(45deg);
+        animation: drip 1s infinite ease-in;
+    }
+    @keyframes ripple {
+        0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+        }
+        100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+        }
+    }
+    @keyframes drip {
+        0% {
+            transform: translate(-50%, -1000%) rotate(45deg);
+        opacity: 0;
+        }
+        50% {
+            transform: translate(-50%, -1000%) rotate(45deg);
+        opacity: 1;
+        }
+        100% {
+             transform: translate(-50%, 0%) rotate(45deg);
+        opacity: 0.5;
+        }
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="drip"></div>
+</body>
+</html>
